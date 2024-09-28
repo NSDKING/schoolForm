@@ -91,3 +91,14 @@
   .option-button:hover {
     background-color: #e0f2fe;
   }
+
+  .footer {
+    position: fixed;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #666;
+    padding: 5px;
+}

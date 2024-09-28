@@ -65,6 +65,9 @@ export default function Main() {
                     </div>
                 </div>
             </div>
+            <footer className="footer">
+                made by enkasWD
+            </footer>
         </div>
     )
 }
