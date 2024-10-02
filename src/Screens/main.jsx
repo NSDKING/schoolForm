@@ -90,7 +90,7 @@ function Main() {
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                                 className="name-input"
-                                placeholder="Entre ton prénom"
+                                placeholder="Entre ton Nom"
                                 required
                             />
                             <button type="submit" className="submit-button">Commencer</button>
