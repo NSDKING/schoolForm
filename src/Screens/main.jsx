@@ -44,11 +44,14 @@ function Main() {
     const [currentQuestion, setCurrentQuestion] = useState(-1); // Start at -1 for name input
     const [answers, setAnswers] = useState({});
     const [name, setName] = useState('');
+    const [isComplete, setIsComplete] = useState(false);
 
     const handleAnswer = (answer) => {
         setAnswers({ ...answers, [currentQuestion]: answer });
         if (currentQuestion < questions.length - 1) {
-        setCurrentQuestion(currentQuestion + 1);
+            setCurrentQuestion(currentQuestion + 1);
+        } else {
+            setIsComplete(true);
         }
     };
 
@@ -59,13 +62,12 @@ function Main() {
         }
     };
 
-    const progress = ((currentQuestion + 1) / (questions.length + 1)) * 100;
+    const progress = isComplete ? 100 : ((currentQuestion + 2) / (questions.length + 1)) * 100;
 
     return (
         <div className="main-container">
-            ,  <div className="logo-text">10 parrains parfaits</div>
-         <div className="form-container">
- 
+            <div className="logo-text">10 parrains parfaits</div>
+            <div className="form-container">
                 <div className="progress-container">
                     <div className="progress-bar">
                         <div 
@@ -94,6 +96,11 @@ function Main() {
                             <button type="submit" className="submit-button">Commencer</button>
                         </form>
                     </div>
+                ) : isComplete ? (
+                    <div className="question-card">
+                        <h2 className="question-text">Merci, {name}!</h2>
+                        <p>Ton formulaire a été soumis avec succès. Nous te contacterons bientôt avec les détails de ton parrain parfait!</p>
+                    </div>
                 ) : (
                     <div className="question-card">
                         <h2 className="question-text">
@@ -121,5 +128,4 @@ function Main() {
 }
 
 export default Main
-
 
