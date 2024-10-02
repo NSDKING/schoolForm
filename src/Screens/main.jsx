@@ -2,9 +2,6 @@ import React, { useState } from 'react'
 import logo from '../assets/logo.png'
 import "./main.css"
 const questions = [
-    { id: 1, text: "Est-ce que tu préfères les soirées tranquilles à la maison plutôt que sortir faire la fête ?", type: "radio", options: ["Oui", "Non"] },
-    { id: 2, text: "En couple ou célibataire ?", type: "radio", options: ["En couple", "Célibataire"] },
-    { id: 3, text: "Ton gars/ta go peut-il avoir un meilleur/meilleure ami(e) ?", type: "radio", options: ["Oui", "Non"] },
     { id: 4, text: "L'argent fait-il le bonheur ?", type: "radio", options: ["Oui", "Non"] },
     { id: 5, text: "Cristiano Ronaldo ou Lionel Messi ?", type: "radio", options: ["Cristiano Ronaldo", "Lionel Messi"] },
     { id: 6, text: "Crois-tu au coup de foudre ?", type: "radio", options: ["Oui", "Non"] },
@@ -13,7 +10,6 @@ const questions = [
     { id: 9, text: "Peux-tu passer une journée sans téléphone ?", type: "radio", options: ["Oui", "Non"] },
     { id: 10, text: "Es-tu intéressé(e) par la mode ?", type: "radio", options: ["Oui", "Non"] },
     { id: 11, text: "Te considères-tu comme un(e) sportif(ve) ?", type: "radio", options: ["Oui", "Non"] },
-    { id: 12, text: "Enfin, est-ce que tu aimes l'école ?", type: "radio", options: ["Oui", "Non"] },
     { id: 13, text: "Quelle est ta boisson de prédilection ?", type: "radio", options: ["Café", "Thé", "Soda", "Eau", "Autre (précise)"] },
     { id: 14, text: "Es-tu plutôt \"soirée film\" ou \"soirée jeux vidéo\" ?", type: "radio", options: ["Film", "Jeux vidéo", "Aucun des deux", "Les deux !"] },
     { id: 15, text: "Quel genre de musique te motive avant un examen ?", type: "radio", options: ["Rap", "Pop", "Rock", "Classique", "Jazz", "Autre (précise)"] },
@@ -44,10 +40,11 @@ const questions = [
   ];
   
 
-export default function Main() {
-    const [currentQuestion, setCurrentQuestion] = useState(0);
+function Main() {
+    const [currentQuestion, setCurrentQuestion] = useState(-1); // Start at -1 for name input
     const [answers, setAnswers] = useState({});
-  
+    const [name, setName] = useState('');
+
     const handleAnswer = (answer) => {
         setAnswers({ ...answers, [currentQuestion]: answer });
         if (currentQuestion < questions.length - 1) {
@@ -55,11 +52,18 @@ export default function Main() {
         }
     };
 
-    const progress = ((currentQuestion + 1) / questions.length) * 100;
+    const handleNameSubmit = (e) => {
+        e.preventDefault();
+        if (name.trim() !== '') {
+            setCurrentQuestion(0);
+        }
+    };
+
+    const progress = ((currentQuestion + 1) / (questions.length + 1)) * 100;
 
     return (
         <div className="main-container">
-            <div className="logo-text">10 parrains parfaits</div>
+            ,  <div className="logo-text">10 parrains parfaits</div>
          <div className="form-container">
  
                 <div className="progress-container">
@@ -75,22 +79,39 @@ export default function Main() {
                     </div>
                 </div>
 
-                <div className="question-card">
-                    <h2 className="question-text">
-                        {questions[currentQuestion].text}
-                    </h2>
-                    <div className="options-container">
-                        {questions[currentQuestion].options.map((option, index) => (
-                            <button
-                                key={index}
-                                onClick={() => handleAnswer(option)}
-                                className="option-button"
-                            >
-                                {option}
-                            </button>
-                        ))}
+                {currentQuestion === -1 ? (
+                    <div className="question-card">
+                        <h2 className="question-text">Quel est ton prénom ?</h2>
+                        <form onSubmit={handleNameSubmit} className="name-form">
+                            <input
+                                type="text"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                className="name-input"
+                                placeholder="Entre ton prénom"
+                                required
+                            />
+                            <button type="submit" className="submit-button">Commencer</button>
+                        </form>
                     </div>
-                </div>
+                ) : (
+                    <div className="question-card">
+                        <h2 className="question-text">
+                            {questions[currentQuestion].text}
+                        </h2>
+                        <div className="options-container">
+                            {questions[currentQuestion].options.map((option, index) => (
+                                <button
+                                    key={index}
+                                    onClick={() => handleAnswer(option)}
+                                    className="option-button"
+                                >
+                                    {option}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+                )}
             </div>
             <footer className="footer">
                 made by enkasWD
@@ -99,5 +120,5 @@ export default function Main() {
     )
 }
 
+export default Main
 
- 
