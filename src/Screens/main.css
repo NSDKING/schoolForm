@@ -20,7 +20,31 @@
     margin-top: -250px;
     width: 30%;
     height: auto;
-    margin-bottom: 2rem;
+    margin-bottom: 10px; /* Reduced from 2rem to bring logo and text closer */
+  }
+  
+  .logo-text {
+    font-family: 'Arial', sans-serif; /* You can change this to a custom font if desired */
+    font-size: 24px;
+    font-weight: bold;
+    color: #333; /* Adjust color as needed */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    
+    /* Add a subtle text shadow for depth */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    
+    /* Optional: Add a gradient color effect */
+    background: linear-gradient(45deg, #3b82f6, #2563eb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    /* Optional: Add an underline */
+    border-bottom: 2px solid #3b82f6;
+    padding-bottom: 5px;
   }
   
   .form-container {
@@ -76,16 +100,20 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    max-height: 60vh;
+    overflow-y: auto;
   }
   
   .option-button {
     width: 100%;
-    padding: 0.5rem;
+    padding: 0.75rem;
     text-align: left;
     border: 1px solid #d1d5db;
     border-radius: 0.25rem;
     background-color: white;
     transition: background-color 0.3s;
+    font-size: 0.9rem;
+    line-height: 1.2;
   }
   
   .option-button:hover {

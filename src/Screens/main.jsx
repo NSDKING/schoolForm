@@ -14,6 +14,33 @@ const questions = [
     { id: 10, text: "Es-tu intéressé(e) par la mode ?", type: "radio", options: ["Oui", "Non"] },
     { id: 11, text: "Te considères-tu comme un(e) sportif(ve) ?", type: "radio", options: ["Oui", "Non"] },
     { id: 12, text: "Enfin, est-ce que tu aimes l'école ?", type: "radio", options: ["Oui", "Non"] },
+    { id: 13, text: "Quelle est ta boisson de prédilection ?", type: "radio", options: ["Café", "Thé", "Soda", "Eau", "Autre (précise)"] },
+    { id: 14, text: "Es-tu plutôt \"soirée film\" ou \"soirée jeux vidéo\" ?", type: "radio", options: ["Film", "Jeux vidéo", "Aucun des deux", "Les deux !"] },
+    { id: 15, text: "Quel genre de musique te motive avant un examen ?", type: "radio", options: ["Rap", "Pop", "Rock", "Classique", "Jazz", "Autre (précise)"] },
+    { id: 16, text: "Si tu pouvais choisir un super-pouvoir pour réussir ta prépa, lequel ce serait ?", type: "radio", options: [
+      "Téléportation pour ne plus jamais être en retard",
+      "Lecture rapide pour absorber tout le cours en 5 minutes",
+      "Super-mémoire pour retenir tous tes cours",
+      "Contrôle du temps pour prolonger les deadlines"
+    ]},
+    { id: 17, text: "Quel est ton loisir préféré en dehors des cours ?", type: "radio", options: ["Sport", "Lecture", "Sortir entre amis", "Jeux vidéo", "Autre (précise)"] },
+    { id: 18, text: "Es-tu plutôt du matin ou du soir pour réviser ?", type: "radio", options: ["Matin", "Soir", "Ça dépend des jours"] },
+    { id: 19, text: "Si tu devais choisir une série/film pour passer la soirée, tu choisirais…", type: "radio", options: [
+      "Un thriller captivant",
+      "Une comédie pour rire un bon coup",
+      "Un documentaire pour apprendre encore plus",
+      "Un film d'animation pour se détendre"
+    ]},
+    { id: 20, text: "Ton type d'humour :", type: "radio", options: ["Sarcastique", "Absurde", "Jeux de mots", "Tout me fait rire"] },
+    { id: 21, text: "Si tu devais emmener ton parrain/filleul dans un endroit cool de la ville, où iriez-vous ?", type: "radio", options: [
+      "Café cosy",
+      "Parc ou espace vert",
+      "Musée ou expo",
+      "Salle de sport ou skatepark",
+      "Autre (précise)"
+    ]},
+    { id: 22, text: "Es-tu plutôt introverti(e) ou extraverti(e) ?", type: "radio", options: ["Introverti(e)", "Extraverti(e)", "Un peu des deux"] },
+    { id: 23, text: "Quelle qualité attends-tu de ton parrain/filleul ?", type: "radio", options: ["Bonne écoute", "Drôle et sympa", "Motivé(e)", "Calme et posé(e)", "Autre (précise)"] },
   ];
   
 
@@ -32,8 +59,8 @@ export default function Main() {
 
     return (
         <div className="main-container">
-            <img src={logo} alt="logo" className="logo" />
-            <div className="form-container">
+            <div className="logo-text">10 parrains parfaits</div>
+         <div className="form-container">
  
                 <div className="progress-container">
                     <div className="progress-bar">
