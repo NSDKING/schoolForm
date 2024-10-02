@@ -83,7 +83,7 @@ function Main() {
 
                 {currentQuestion === -1 ? (
                     <div className="question-card">
-                        <h2 className="question-text">Quel est ton prénom ?</h2>
+                        <h2 className="question-text">Quel est ton Nom complet ?</h2>
                         <form onSubmit={handleNameSubmit} className="name-form">
                             <input
                                 type="text"
@@ -99,7 +99,7 @@ function Main() {
                 ) : isComplete ? (
                     <div className="question-card">
                         <h2 className="question-text">Merci, {name}!</h2>
-                        <p>Ton formulaire a été soumis avec succès. Nous te contacterons bientôt avec les détails de ton parrain parfait!</p>
+                        <p>Ton formulaire a été soumis avec succès. rendez-vous a la soiree de parrainage pour decouvrir ton parrain parfait!</p>
                     </div>
                 ) : (
                     <div className="question-card">
