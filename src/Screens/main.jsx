@@ -99,8 +99,8 @@ function Main() {
                 ) : isComplete ? (
                     <div className="question-card">
                         <h2 className="question-text">Merci, {name}!</h2>
-                        <p>Ton formulaire a été soumis avec succès. rendez-vous a la soiree de parrainage pour decouvrir ton parrain parfait!</p>
-                    </div>
+                            <p>Ton formulaire a été soumis avec succès. Rendez-vous à la soirée de parrainage pour découvrir ton parrain/filleul parfait !</p>
+                        </div>
                 ) : (
                     <div className="question-card">
                         <h2 className="question-text">
